@@ -1,0 +1,27 @@
+{
+  "name": "urlshortenermakkbit",
+  "version": "1.0.0",
+  "description": "URL SHORTER",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines":{
+    "node": "6.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makkBit/URL-Shortener-Microservice-makk_bit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makkBit/URL-Shortener-Microservice-makk_bit/issues"
+  },
+  "homepage": "https://github.com/makkBit/URL-Shortener-Microservice-makk_bit#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6"
+  }
+}

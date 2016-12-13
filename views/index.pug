@@ -1,0 +1,29 @@
+html
+	head
+		title URL Shortener Microservice
+		style
+			include css/style.css
+			include css/bootstrap.min.css
+
+	body(class='text-center')
+		div(class='page-header')
+			h1 URL Shortener Microservice
+		h3 User Stories:
+		ol(class='well')
+			li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+			li If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+			li When I visit that shortened URL, it will redirect me to my original link. 
+		h3 Example usage:
+		p(class='well') 
+			|https://little-url.herokuapp.com/new/https://www.google.com
+			<br>
+			|https://little-url.herokuapp.com/new/http://foo.com:80
+
+		p(class='well') 
+			|{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }
+
+		a(class='repo' href="https://github.com/makkBit/URL-Shortener-Microservice-makk_bit", target="_blank") github repo
+		br
+		br
+		p made by
+			a(href="https://twitter.com/makk_bit", target="_blank")  mahak
