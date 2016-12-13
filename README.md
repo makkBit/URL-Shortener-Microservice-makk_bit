@@ -1,4 +1,4 @@
-# urlshortnermakkbit
+# URL-Shortener-Microservice
 
 For <a href="https://www.freecodecamp.com/challenges/url-shortener-microservice">Free Code Camp - API Challenges - url shortener microservice<a/>
 <br>
