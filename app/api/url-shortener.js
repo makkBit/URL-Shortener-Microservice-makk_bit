@@ -22,8 +22,7 @@ module.exports = function(app, db){
 
 	//visiting shortened url
 	app.get('/:id', (req, res) => {
-		let id = req.params.id;
-		let query = 'http://localhost:8080/'+id;
+		let query = 'http://localhost:8080/'+req.params.id;
 		console.log(query);
 		//finds the shortened_url in db
 		//and redirects to the  original_url

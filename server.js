@@ -2,10 +2,9 @@
 const express = require('express');
 const app = express();
 
+
 //configure mongo
 const mongoClient = require('mongodb').MongoClient;
-var url = process.env.MONGOLAB_URI | 'mongodb://localhost:8000/urldbmakkbit';
-
 
 
 //configure pug
@@ -18,7 +17,7 @@ const api = require('./app/api/url-shortener.js');
 const routes = require('./app/routes/index.js');
 
 
-mongoClient.connect(url, (err, db) =>{
+mongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urldbmakkbit', (err, db) =>{
 
 	if (err)
 		throw err;
