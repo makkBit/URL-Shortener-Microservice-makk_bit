@@ -21,6 +21,7 @@ const api = require('./app/api/url-shortener.js');
 const routes = require('./app/routes/index.js');
 
 
+
 mongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:8000/urldbmakkbit', (err, db) =>{
 
 	if (err)

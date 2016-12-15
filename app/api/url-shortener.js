@@ -62,7 +62,7 @@ module.exports = function(app, db){
 
 			var doc1 = {
 				'original_url': href,
-				'short_url': generateId(href)
+				'short_url': generateId()
 			};
 
 			//send json response to the client
@@ -82,8 +82,8 @@ module.exports = function(app, db){
 
 
 	//generates unique shortened url
-	var generateId = function(href){
-		let domain = process.env.APP_URL || 'http://localhost:8080/';
+	var generateId = function(){
+		let domain = process.env.APP_URL;
 		return domain+Math.floor(Math.random()*1000000)+1;
 	};
 
