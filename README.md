@@ -28,7 +28,7 @@ https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-th
 </p>
 <br>
 <p>json response:</p>
-<p>{ "original_ur":"https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js", "short_url":"https://shorten-this-url.herokuapp.com/4838511" }</p>
+<p>{ "original_url":"https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js", "short_url":"https://shorten-this-url.herokuapp.com/4838511" }</p>
 
 
 
