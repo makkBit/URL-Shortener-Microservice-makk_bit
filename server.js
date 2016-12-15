@@ -11,13 +11,17 @@ const mongoClient = require('mongodb').MongoClient;
 app.set('views','./views');
 app.set('view engine','pug');
 
+//favicon
+var favicon = require('serve-favicon');
+app.use(favicon(__dirname + '/public/favicon.ico'));
+
 
 //imports app js files
 const api = require('./app/api/url-shortener.js');
 const routes = require('./app/routes/index.js');
 
 
-mongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urldbmakkbit', (err, db) =>{
+mongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:8000/urldbmakkbit', (err, db) =>{
 
 	if (err)
 		throw err;
