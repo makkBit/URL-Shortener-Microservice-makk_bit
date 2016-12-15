@@ -2,10 +2,22 @@ module.exports = function(app, db){
 
 	const validUrl = require('valid-url');
 
+
+	//visiting shortened url
+	app.get('/:id', (req, res) => {
+		// let query = 'http://localhost:8080/'+req.params.id;
+		let query = 'http://localhost:8080/'+req.params.id || process.env.APP_URL + req.params.id;
+		//finds the shortened_url in db
+		//and redirects to the  original_url
+		handleGet(db,query,req,res);
+	});
+
+
 	//when url is provided
 	app.get('/new/:href*', (req,res) => {
 
 		let href = req.params.href+req.params[0]+'/';
+		console.log(href);
 		//validates entered url
 		if (validUrl.isUri(href)){
 			//required json repsonse for valid url
@@ -18,17 +30,7 @@ module.exports = function(app, db){
         	})
     	}
 	});
-
-
-	//visiting shortened url
-	app.get('/:id', (req, res) => {
-		let query = 'http://localhost:8080/'+req.params.id;
-		console.log(query);
-		//finds the shortened_url in db
-		//and redirects to the  original_url
-		handleGet(db,query,req,res);
-	});
-
+	
 
 	var handleGet = function(db,query,req,res){
 
@@ -38,13 +40,16 @@ module.exports = function(app, db){
 			collection.findOne({
 				short_url: query
 			}, function(err, results){
-				if(err)
+				if(err) throw err;
+				if(results){
+					console.log(results);
+					res.redirect(results.original_url);
+				}
+				else{
 					res.json({
 						err:'please enter a valid url'
-					})
-				console.log(results);
-				res.redirect(results.original_url);
-				db.close();
+					});
+				}
 			});
 	};
 
@@ -58,7 +63,7 @@ module.exports = function(app, db){
 			var doc1 = {
 				'original_url': href,
 				'short_url': generateId(href)
-			}
+			};
 
 			//send json response to the client
 			res.send(doc1);
@@ -71,14 +76,15 @@ module.exports = function(app, db){
 			//prints all documents in the urls collection of url database
 			collection.find().toArray(function(err, documents){
 				console.log(documents);
-				db.close();
+				
 			});
 	};
 
 
 	//generates unique shortened url
 	var generateId = function(href){
-		return 'http://localhost:8080/'+Math.floor(Math.random()*1000000)+1;
+		let domain = process.env.APP_URL || 'http://localhost:8080/';
+		return domain+Math.floor(Math.random()*1000000)+1;
 	};
 
 

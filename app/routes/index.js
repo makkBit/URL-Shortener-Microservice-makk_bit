@@ -1,4 +1,4 @@
-module.exports = function(app, db){
+module.exports = function(app){
 
 	//home
 	app.get('/', (req,res) => {
