@@ -6,7 +6,8 @@ module.exports = function(app, db){
 	//visiting shortened url
 	app.get('/:id', (req, res) => {
 		// let query = 'http://localhost:8080/'+req.params.id;
-		let query = 'http://localhost:8080/'+req.params.id || process.env.APP_URL + req.params.id;
+		let appName = 'https://shorten-this-url.herokuapp.com/' || 'http://localhost:8080/';
+		let query = appName+req.params.id;
 		//finds the shortened_url in db
 		//and redirects to the  original_url
 		handleGet(db,query,req,res);
