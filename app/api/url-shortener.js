@@ -83,7 +83,7 @@ module.exports = function(app, db){
 
 	//generates unique shortened url
 	var generateId = function(href){
-		let domain = process.env.APP_URL || 'http://localhost:8080/';
+		let domain = 'https://shorten-this-url.herokuapp.com/' || 'http://localhost:8080/';
 		return domain+Math.floor(Math.random()*1000000)+1;
 	};
 
