@@ -1,29 +1,28 @@
 html
-	head
-		title URL Shortener Microservice
-		style
-			include css/style.css
-			include css/bootstrap.min.css
+  head
+    title URL Shortener Microservice
+    style
+      include css/style.css
+      include css/bootstrap.min.css
+    meta(name="viewport" content="width=device-width, initial-scale=1")
 
-	body(class='text-center')
-		div(class='page-header')
-			h1 URL Shortener Microservice
-		h3 User Stories:
-		ol(class='well')
-			li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
-			li If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
-			li When I visit that shortened URL, it will redirect me to my original link. 
-		h3 Example usage:
-		p(class='well') 
-			|https://shorten-this-url.herokuapp.com/new/https://www.google.com
-			<br>
-			|https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js
 
-		p(class='well') 
-			|{ "original_url":"https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js", "short_url":"https://shorten-this-url.herokuapp.com/4838511" }
 
-		a(class='repo' href="https://github.com/makkBit/URL-Shortener-Microservice-makk_bit", target="_blank") github repo
-		br
-		br
-		p made by
-			a(href="https://twitter.com/makk_bit", target="_blank")  mahak
+  body(class='text-center')
+  #box1.box.blurred-bg(class='text-center')
+    .content
+      h3 URL Shortener Microservice
+      blockquote(class="bscallout") Pass a URL as a parameter and receive a shortened URL in json response
+      h4 Example usage:
+      p(class='well') 
+        |https://shorten-this-url.herokuapp.com/new/https://www.google.com
+        <br>
+        |https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js
+      h4 Sample Output:
+      p(class='well') 
+        |{ "original_url":"https://shorten-this-url.herokuapp.com/new/https://github.com/makkBit/shorten-this-url/blob/master/app/api/url-shortener.js", "short_url":"https://shorten-this-url.herokuapp.com/4838511" }
+
+      a(class='repo' href="https://github.com/makkBit/URL-Shortener-Microservice-makk_bit", target="_blank") github repo
+      br
+      p made by
+        a(href="https://twitter.com/makk_bit", target="_blank")  mahak
